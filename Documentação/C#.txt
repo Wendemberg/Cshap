@@ -1,0 +1,212 @@
+-=-=-=-=- DOCUMENTAÇÃO C# -=-=-=-=-
+
+ - O primeiro método a ser executado dentro do meu programa é o Main()
+
+ - A adição de texto e variável é através de de concatenação (+)
+	ex: Console.WriteLine("Seu nome é: " + nome);
+
+ (var) pode ser utilizado para inferência de tipo 
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+-- TRÊS MÉTODOS DE CONVERSÃO DE VARIÁVEIS -- 
+
+
+** Conversões implicitas **
+- são aquelas que o compilador consegue gerenciar internamente basta que façamos uma atribuição de tipo diferente. 
+
+** Convesões explicitas ** 
+- Aquela que há risco de perder dados e informamos ao compilador que desejamos mesmo assim realizar a conversão.
+
+	Ex: No caso de perca de dados temos que indicar a conversão antes da variável. 
+
+namespace ConvesoesTipos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            decimal taxa = 12.98m;
+       **** int taxa2 = (int)taxa; **** Isso é chamado de CAST 
+            Console.WriteLine(taxa2);
+        }
+    }
+}
+
+** Conversões com Classes Auxiliares ** 
+- É possível utilizar classe expecializadas em conversões de variáveis. 
+
+Ex: É utilizado um método chamado ToString() que irá converter o valor decimal em string.
+
+namespace ConvesoesTipos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            decimal taxa = 12.98m;
+         ** string taxa2 = taxa.ToString(); **
+            Console.WriteLine(taxa2);
+        }
+    }
+}
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+-- INTERPOLAÇÃO DE STRING -- 
+
+var nomeCompleto = $"{nome} {sobrenome}";
+
+
+-- Conversão de tamanhos de tipo String --
+
+** Console.WriteLine("Seu nome completo é: " + nomeCompleto.ToUpper()); **
+** Console.WriteLine("Seu nome completo em minusculo e: " + nomeCompleto.ToLower()); **
+
+Métodos utilizados: nomeCompleto.ToUpper();
+                    nomeCompleto.ToLower();
+
+-- Obtendo parte de uma string --
+
+	- nomeCompleto.Substring(4, 5) = a partir do indice 4 eu obtentenho 5 caracters
+		
+		Ex: - W - e - n - d - e - m - b - e - r - g -
+		    - 0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 -
+
+	Obs: É sempre importante lembrar que a contagem de indicies inicia em 0. Sendo assim o retorno do exemplo acima é = ember ignorando o "g" já que a minha expecificação ficou com 5 caracteres após o 4º caractere.
+	Os espaços em branco são consideradas posições na contagem de indicies.
+
+-- METODO PARA VERIFICAR SE EM UMA STRING TEM UM DETERMINADO VALOR(CARACTER) --
+
+	- O método: Console.WriteLine(nome.Contains("em")); - Retona valores boleans = True or False.
+	- 'o' Quando em aspas simples é considerado um tipo Char.
+	- "em" Quando em aspas duplas é considerado uma string.
+
+
+-- MÉTODO PARA VERIFICAR SE UMA CADEIA DE CARACTER INICIA OU TERMINA COM UM CARACTER ESPECIFICO --
+
+	OBS: Importante lembrar que esses métodos retornam valores boleanos
+
+		 var nome = "Wendemberg";
+            Console.WriteLine(nome.StartsWith("W"));
+            Console.WriteLine(nome.EndsWith("g"));
+
+	- Console.WriteLine(nome.IndexOf("g")); - Esse método retorna a posição de um caracter em indicie. 
+	Ele sempre retorna o número do indicie da primeira ocorrência. 
+
+	- Console.WriteLine(nome.LastIndexOf('e')); - Irá verificar a última ocorrência do carater especificado, assim 	mostrando sua osição em indicie.
+
+	
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-
+
+-- TIPO DATETIME --
+
+	 var data1 = new DateTime(2020, 03, 28); - O objeto new usado para criar um novo objeto em memória do tipo DateTime. Por ser uma classe ele requer o uso deste operador, o que não acontece com os tipos decimal ou bolean.
+
+using System;
+
+namespace TipoDateTime
+{
+    class Program
+    {
+        static void Main(string[] arg)
+        {
+            var hoje = DateTime.Today;
+            var agora = DateTime.Now;
+            var data1 = new DateTime(2020, 03, 28);
+            var data2 = new DateTime(2022, 02, 26, 11, 35, 00);
+            var data3 = DateTime.Parse("26/02/2022 11:44:02");
+            Console.WriteLine(hoje);
+            Console.WriteLine(agora);
+            Console.WriteLine(data1);
+            Console.WriteLine(data2);
+            Console.WriteLine(data3.Day);
+            Console.WriteLine(data3.Month);
+            Console.WriteLine(data3.Year);
+            Console.WriteLine(data3.Hour);
+            Console.WriteLine(data3.Minute);
+            Console.WriteLine(data3.Second);
+            Console.WriteLine(data3.Millisecond);
+            Console.WriteLine(data3.AddDays(5)); // Adiciona ou subtrai conforme definição: 3, -1.
+            Console.WriteLine(data3.ToLongDateString()); //Formatação estendida da data. 
+            Console.WriteLine(data3.ToLongTimeString()); // Formatação estendida da hora.
+            Console.WriteLine(data3.ToShortDateString()); // Formatação curta da data.
+            Console.WriteLine(data3.ToShortTimeString()); // Formatação curta da hora.
+        }
+    }
+}
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+-- ARRAYS --
+
+	- Uma caracteristica do importantes de um array é que eles possuem um tamanho fixo. A partir do momento que declaramos um array sabemos a quantidade de itens que ele pode ter. Esse itens podem ser acessados a partir do seu indice.
+
+	- É possível inicializar um array sem acessar indice por indice. 
+
+
+using System;
+
+namespace Arrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+         /* int[] numeros = new int[3];
+            numeros[0] = 10;
+            numeros[1] = 11;
+            numeros[2] = 12;
+            numeros[3] = 13;
+            Console.WriteLine(numeros[0]);
+            Console.WriteLine(numeros[1]);
+            Console.WriteLine(numeros[3]); */
+
+         /* int[] pares = new int[3] { 2, 4, 6 };
+            Console.WriteLine(pares[0]);
+            Console.WriteLine(pares[1]);
+            Console.WriteLine(pares[2]);*/
+
+         /* int[] impares = new int[] {1, 3, 5, 7 };
+            Console.WriteLine(impares[0]);
+            Console.WriteLine(impares[1]);
+            Console.WriteLine(impares[2]);
+            Console.WriteLine(impares[3]);*/
+
+         /* string[] nomes = new[] {"Wendemberg", "Esther", "Thalyta", "Pedro", "Everaldo" };
+            Console.WriteLine(nomes[0]);
+            Console.WriteLine(nomes[1]);
+            Console.WriteLine(nomes[2]);
+            Console.WriteLine(nomes[3]);*/
+
+         /* string[] paises = { "França", "Brasil", "Russia" };
+            Console.WriteLine(paises[0]);
+            Console.WriteLine(paises[1]);
+            Console.WriteLine(paises[2]); */
+
+            var cidades = new[] { "São Paulo", "Fortalez", "Rio de Janeiro" };
+            Console.WriteLine(cidades[0]);
+            Console.WriteLine(cidades[1]);
+            Console.WriteLine(cidades[2]); //Inferencia de tipo
+
+        }
+
+    }
+}
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+-- OPERADORES ARITIMETICOS --
+
+ Obs: Na inferência de tipo caso os operadores sejam inteiros o resultado é inteiro. A observação vale para divisões quebradas, pois se as variaveis receberam valor inteiro por inferência aquela variável é inteira, assim retornando um valor inteiro na operação aritimetica, sendo assim o valor retornado de uma divisão é sempre a pate inteira, acarretando perca de dados. 
+
+
+
+
+
+
+
+
