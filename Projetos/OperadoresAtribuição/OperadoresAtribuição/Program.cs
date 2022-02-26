@@ -22,8 +22,7 @@ namespace OperadoresAtribuicao
             Console.WriteLine(b);
             Console.WriteLine(c);
             Console.WriteLine(d);
-            Console.WriteLine(e);
-                  
+            Console.WriteLine(e);    
         }
     }
 }
