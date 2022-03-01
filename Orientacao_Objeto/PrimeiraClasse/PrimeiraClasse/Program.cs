@@ -15,6 +15,10 @@ namespace CriandoPrimeiraClasse
             conta.RealizarEmprestimo(200, 10);
             Console.WriteLine(conta.ExibirExtrato());
 
+            Console.WriteLine(Conta.TaxaRendimento);
+            Console.WriteLine(Conta.CalcularRendimento(100, 12));
+
+
         }
     }
 }
