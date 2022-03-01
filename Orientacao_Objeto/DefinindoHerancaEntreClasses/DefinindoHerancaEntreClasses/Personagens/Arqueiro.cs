@@ -9,6 +9,11 @@ namespace Personagens
         {
             
         }
-        
+
+        public override void Atacar()
+        {
+            Console.WriteLine($"{Nome} atacou com arco e flecha.");
+        }
+
     }
 }

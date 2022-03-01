@@ -9,6 +9,11 @@ namespace Personagens
         {
             Id = "Cavaleiro1";
         }
-      
+
+        public override void Atacar()
+        {
+            Console.WriteLine($"{Nome} atacou com espada.");
+        }
+
     }
 }

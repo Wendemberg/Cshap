@@ -15,7 +15,7 @@ namespace Personagens
             Vida = vida;
         }
 
-        public void Atacar()
+        public virtual void Atacar()
         {
             Console.WriteLine($"{Nome} atacou.");
         }

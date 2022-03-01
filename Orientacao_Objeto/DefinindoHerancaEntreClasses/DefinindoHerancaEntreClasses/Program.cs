@@ -9,7 +9,7 @@ namespace DefinindoHerancaEntreClasses
         {
             var cavaleiro = new Cavaleiro("Aragon", 100);
             var arqueiro = new Arqueiro("Legolas", 100);
-            var mago = new Mago("Gandalf", 100);
+            var mago = new Mago("Gandalf", 100, 100);
 
             cavaleiro.Atacar();
             cavaleiro.Defender();
@@ -20,7 +20,6 @@ namespace DefinindoHerancaEntreClasses
             mago.Atacar(); 
             mago.Defender();   
 
-            cavaleiro.Id
         }
     }
 }
