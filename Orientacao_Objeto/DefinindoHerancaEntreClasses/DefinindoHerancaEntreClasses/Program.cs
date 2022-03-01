@@ -12,13 +12,18 @@ namespace DefinindoHerancaEntreClasses
             var mago = new Mago("Gandalf", 100, 100);
 
             cavaleiro.Atacar();
+            cavaleiro.Atacarespecial();
             cavaleiro.Defender();
 
             arqueiro.Atacar();
+            arqueiro.Atacarespecial();
             arqueiro.Defender();
 
-            mago.Atacar(); 
-            mago.Defender();   
+            mago.Atacar();
+            mago.Atacarespecial();
+            mago.Defender(); 
+            
+           
 
         }
     }

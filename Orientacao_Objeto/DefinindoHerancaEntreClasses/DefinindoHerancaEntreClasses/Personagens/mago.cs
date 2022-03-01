@@ -14,6 +14,10 @@ namespace Personagens
         {
             Console.WriteLine($"{Nome} atacou com magia.");
         }
+        public override void Atacarespecial()
+        {
+            Console.WriteLine($"{Nome} Ataque Especial com magia.");
+        }
 
     }
 }

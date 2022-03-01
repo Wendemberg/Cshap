@@ -2,7 +2,7 @@ using System;
 
 namespace Personagens
 {
-    public class Personagem
+    public abstract class Personagem
     {
         public string? Nome { get; set; }
         public int Vida { get; set; }
@@ -23,5 +23,8 @@ namespace Personagens
         {
             Console.WriteLine($"{Nome} defendeu.");
         }
+
+        public abstract void Atacarespecial();
+        
     }
 }
