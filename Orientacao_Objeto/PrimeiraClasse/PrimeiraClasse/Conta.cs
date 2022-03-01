@@ -21,12 +21,26 @@ namespace Contas
         }
        */
 
+        public Conta()
+        {
+            Numero = DateTime.Now.ToString("yyyyMMddhhmmss");
+            DataAbertura = DateTime.Now;
+            Saldo = 0;
+        }
+
+        public Conta(string numero, DateTime dataAbertura, decimal saldo)
+        {
+            Numero = numero;
+            DataAbertura = dataAbertura;
+            Saldo = saldo;  
+        }
+
         public string ExibirExtrato()
         {
             return $"Conta Nº          { Numero }{Environment.NewLine}" +
                    $"Data de abertura: { DataAbertura.ToString("dd/MM/yyyy") }{Environment.NewLine}" +
                    $"Saldo:            {Saldo.ToString("C") }{Environment.NewLine}" +
-                    "-------------------------------------------";
+                    $"------------------------------------------- {Environment.NewLine}";
         }
 
         public void Depositar(decimal valor)
