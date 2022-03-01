@@ -1,0 +1,9 @@
+namespace Orcamento
+{
+    class ContaPagar
+    {
+
+    }
+
+
+}
