@@ -10,10 +10,11 @@ namespace CriandoPrimeiraClasse
             var conta = new Conta();
             conta.Numero = "001";
             conta.DataAbertura = DateTime.Today;
-            conta.Saldo = 0;
+            conta.Saldo = 100;
 
-            conta.ExibirExtrato();
-            
+            conta.RealizarEmprestimo(200, 10);
+            Console.WriteLine(conta.ExibirExtrato());
+
         }
     }
 }
